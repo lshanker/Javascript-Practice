@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>People Factory</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <link rel="stylesheet" href="index.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <h1>A Factory of People</h1>
+
+    <section>
+      <div class="special">
+        <form id="personForm">
+          <p>
+            <label for="personName">Name</label>
+            <input type="text" name="personName">
+          </p>
+
+          <p class="short-1">
+            <label for="favoriteColor">Favorite Color</label>
+            <input type="color" name="favoriteColor">
+          </p>
+
+          <br>
+
+          <p class = "short-2">
+            <label for="age">Age</label>
+            <input type="number" name="age">
+          </p>
+
+          <p>
+            <label for="gender">Gender</label>
+            <br>
+            <input type = "radio" name = "gender" id = "male">Male</input>
+            <br>
+            <input type = "radio" name = "gender" id = "female">Female</input>
+              <br>
+            <input type = "radio" name = "gender" id = "other">Other</input>
+              <br>
+          </p>
+          <p class = "button-holder">
+            <button type="submit">GO</button>
+          </p>
+        </form>
+      </div>
+
+      <p id = "personal-info">
+
+      </p>
+
+      <div id="details"></div>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>

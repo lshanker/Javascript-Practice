@@ -1,0 +1,198 @@
+/*CSS Reset*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+/*---------------Page Styles---------------*/
+
+html{
+  display: flex;
+  justify-content: center;
+  background-color: #efefef;
+
+  font-family: 'Roboto', sans-serif;
+
+}
+
+body{
+  margin-top: 100px;
+  width: 50%;
+
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+
+  box-shadow: 0 20px 75px 3px gray;
+}
+
+div.special{
+  width: 100%;
+
+}
+
+label{
+  margin-bottom: 5px;
+
+  display: inline-block;
+
+}
+
+input[type="text"], input[type="number"]{
+  display: inline-block;
+  width: 70%;
+  margin-left: 10px;
+
+  border-top: solid 0px transparent;
+  border-left:  solid 0px transparent;
+  border-right:  solid 0px transparent;
+  border-bottom: solid 3px  gray;
+
+  box-shadow: 0 4px 9px -7px black;
+
+  color: gray;
+
+  transition: 0.3s;
+}
+
+input[type="text"]:hover, input[type="text"]:focus
+, input[type="number"]:hover,  input[type="number"]:focus{
+  border-top: solid 0px transparent;
+  border-left:  solid 0px transparent;
+  border-right:  solid 0px transparent;
+  border-bottom: solid 3px #2576f9;
+
+  box-shadow: 0 4px 9px -7px black;
+
+  color: #2576f9;
+
+  transition: 0.3s;
+}
+
+input[type="number"]{
+  text-align: center;
+
+}
+
+input[type="color"]{
+  width: 40%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+p.short-1{
+  width: 60%;
+  display: inline-block;
+}
+
+p.short-2{
+  width: 45%;
+  display: inline-block;
+}
+
+body h1{
+  font-weight: bold;
+  font-size: 1.8em;
+
+  margin-bottom: 20px;
+}
+
+
+button[type="submit"]{
+  background-color: #4285f4;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  color: white;
+
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+
+  margin-left: 32%;
+  transition: 0.5s;
+}
+
+button[type="submit"]:hover{
+    box-shadow: 0 4px 20px 2px gray;
+    transition: 0.5s;
+}
+
+
+h2{
+	color: gray;
+	font-size: 0.4em;
+	margin-top: 5px;
+}
+
+
+@media (min-width: 700px) {
+  section > div {
+    width: 60%;
+  }
+}
+
+@media (min-width: 900px) {
+  section > div {
+    float: left;
+    margin: 20px 5%;
+    width: 40%;
+  }
+
+
+input[type="radio"]{
+  display: inline-block;
+}
