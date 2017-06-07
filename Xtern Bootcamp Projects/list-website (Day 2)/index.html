@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>List Editor</title>
+  <meta name="description" content="A fun list editing website.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <h1>List Editor</h1>
+
+  <form name="listEntryForm">
+    <label for = "listEntry">New list item:</label>
+    <input type = "text" name = "listEntry"/>
+    <br>
+
+    <label for = "topCheckBox">From top</label>
+    <input type = "checkbox" name = "topCheckbox"/>
+
+    <input type = "submit" value = "Add to list"/>
+  </form>
+
+  <h2>The list</h2>
+  <ul>
+    <!--Elements will be added here with JS-->
+  </ul>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
