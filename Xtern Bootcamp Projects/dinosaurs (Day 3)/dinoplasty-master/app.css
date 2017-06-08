@@ -27,3 +27,8 @@ button.del:hover{
   background-color: #515151;
   transition: 0.3s;
 }
+
+
+li span{
+  margin-right: 20px;
+}

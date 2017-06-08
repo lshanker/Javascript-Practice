@@ -1,7 +1,8 @@
 const app = {
   init(selectors) {
-    this.dinos = []
-    this.max = 0
+    this.dinos = JSON.parse(localStorage.getItem("dinos"));
+    this.max = this.dinos.length;
+    this.namesAfterRefresh();
     this.list = document.querySelector(selectors.listSelector)
     document
       .querySelector(selectors.formSelector)
@@ -27,7 +28,7 @@ const app = {
 
 
 
-    ++ this.max
+    ++this.max
   },
 
   renderListItem(dino) {
@@ -41,95 +42,104 @@ const app = {
     const favButton = document.createElement('button');
     favButton.textContent = "Favorite";
     favButton.setAttribute("class", "button primary");
-    favButton.addEventListener("click", function(){
+    favButton.addEventListener("click", function() {
       promoteEntry(this);
     }, false);
 
     const delButton = document.createElement('button');
     delButton.textContent = "Delete";
     delButton.setAttribute("class", "alert button");
-    delButton.addEventListener("click", function(){
+    delButton.addEventListener("click", function() {
       deleteEntry(this);
     }, false);
 
     const upButton = document.createElement('button');
     upButton.textContent = "Move Up";
     upButton.setAttribute("class", "warning button");
-    upButton.addEventListener("click", function(){
-      var dinos = JSON.parse(localStorage.getItem("dinos"));
-      console.log("dinos in listener");
-      console.log(dinos);
+    upButton.addEventListener("click", function() {
       moveUp(this);
+    }, false);
+
+    const downButton = document.createElement('button');
+    downButton.textContent = "Move Down";
+    downButton.setAttribute("class", "secondary button");
+    downButton.addEventListener("click", function() {
+      moveDown(this);
     }, false);
 
     item.appendChild(span);
     item.appendChild(favButton);
     item.appendChild(delButton);
     item.appendChild(upButton);
+    item.appendChild(downButton);
 
     return item
+  },
+
+  namesAfterRefresh(){
+      var dinos = JSON.parse(localStorage.getItem("dinos"));
+      console.log(dinos);
+
+      var ul = document.querySelector('ul');
+
+      for(var i = 0; i< dinos.length; i++){
+        var li = this.renderListItem(dinos[i]);
+        console.log(li);
+        ul.appendChild(li);
+      }
   }
 }
 
 
-function promoteEntry(button){
+function promoteEntry(button) {
 
   //TODO try using .closest
 
   var li = button.parentElement;
 
-  if(li.style.color === "black"){
+  if (li.style.color === "black") {
     li.style.color = "gold";
     li.style.fontWeight = 'bold';
-  }else{
+  } else {
     li.style.color = "black";
     li.style.fontWeight = 'normal';
   }
 }
 
 
-function deleteEntry(button){
-  console.log("in delete");
-
+function deleteEntry(button) {
   var li = button.parentElement;
   li.parentNode.removeChild(li);
 
   //Remove the dino from the array
   var curID = Number(li.getAttribute('name'));
 
-  for(var i = 0; i<app.dinos.length; i++){
+  for (var i = 0; i < app.dinos.length; i++) {
 
-    if(app.dinos[i]['id'] === curID){
+    if (app.dinos[i]['id'] === curID) {
       app.dinos.splice(i, 1);
     }
   }
 
-  //Don't forget to update the counter
+  //Don't forget to update the counter and the stored array
   --app.max;
+  localStorage.setItem("dinos", JSON.stringify(app.dinos));
 }
 
-function moveUp(button){
+function moveUp(button) {
   var li = button.parentElement;
   var curID = Number(li.getAttribute('name'));
 
   var dinos = JSON.parse(localStorage.getItem("dinos"));
-  console.log("dinos in moveUp");
-  console.log(dinos);
 
-  console.log(dinos.length);
-
-
-  for(var counter = 0; counter<5; counter++){
-    console.log("hi, on count: " + counter);
-  }
-
-  for(var j = 0; j<dinos.length - 1; j++){
-    //Switch the two elements to move the desired dino up one
-    console.log("This is j: " + j);
-    if(dinos[j]['id'] === curID){
-      var temp = dinos[j];
-      dinos[j] = dinos[j + 1];
-      dinos[j + 1] = temp;
+  for (var j = 0; j < dinos.length; j++) {
+    //Switch the two elements to move the desired dino down one
+    if (j != 0) {
+      if (dinos[j]['id'] === curID) {
+        var temp = dinos[j];
+        dinos[j] = dinos[j - 1];
+        dinos[j - 1] = temp;
+      }
     }
   }
 
@@ -138,20 +148,50 @@ function moveUp(button){
   namesFromStorage();
 }
 
-function namesFromStorage(){
+
+function moveDown(button) {
+  var li = button.parentElement;
+  var curID = Number(li.getAttribute('name'));
 
   var dinos = JSON.parse(localStorage.getItem("dinos"));
-  console.log("dinos in namesFromStorage");
+
   console.log(dinos);
+
+  for (var j = 0; j < dinos.length - 1; j++) {
+    //Switch the two elements to move the desired dino up one
+    if (j != dinos.length - 1) {
+      if (dinos[j]['id'] === curID) {
+        var temp = dinos[j];
+        dinos[j] = dinos[j + 1];
+        dinos[j + 1] = temp;
+        break;
+      }
+    }
+  }
+
+  console.log(dinos);
+
+  localStorage.setItem("dinos", JSON.stringify(dinos));
+
+  namesFromStorage();
+}
+
+function namesFromStorage() {
+
+  var dinos = JSON.parse(localStorage.getItem("dinos"));
 
   var ul = document.querySelector('ul');
   var children = ul.children;
 
-  for(var i = 0; i<children.length; i++){
+  for (var i = 0; i < children.length; i++) {
     children[i].getElementsByTagName("span")[0].innerHTML = dinos[i]['name'];
+    children[i].setAttribute("name", dinos[i]['id']);
   }
 
 }
+
+
+
 
 
 app.init({
