@@ -1,17 +1,80 @@
 .favorite{
-  border: solid 2px red;
+  /*border: solid 2px red;*/
+  box-shadow: 0 0 15px 2px gray;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  transition: 0.2s;
+}
+
+
+img{
+  width: 200px;
+  display: inline-block;
+}
+
+h1{
+  display: inline-block;
+}
+
+body{
+  font-family: 'PT Sans', sans-serif;
 }
 
 button{
   padding: 5px;
-  margin: 3px;
+  margin-right: 3px;
+  text-align: center;
+  vertical-align: middle;
+
+  border-right: solid 1px white;
+    border-bottom: solid 1px transparent;
+  transition: 0.2s;
+}
+
+.delete:hover{
+  transition: 0.3s;
+  border-bottom: solid 1px red;
+}
+
+.moveUp:hover{
+  transition: 0.3s;
+  border-bottom: solid 1px green;
+}
+.moveDown:hover{
+  transition: 0.3s;
+  border-bottom: solid 1px blue;
+}
+.fav:hover{
+  transition: 0.3s;
+  border-bottom: solid 1px gold;
+}
+
+.edit:hover{
+  transition: 0.3s;
+  border-bottom: solid 1px purple;
+}
+
+li h3{
+  margin-left: 10px;
+}
+
+li p{
+  margin-left: 10px;
 }
 
 li{
   margin-top: 5px;
-  padding: 2px;
+
+  background: #d8d8d8;
+
+  transition: 0.2s;
 }
 
 li span{
   margin-right: 20px;
+}
+
+ol, ul {
+	list-style: none;
 }
