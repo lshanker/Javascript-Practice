@@ -191,10 +191,11 @@ function namesFromStorage() {
 }
 
 
-
-
-
-app.init({
+//Starts the app object
+app.init(
+  //Passing the init method an object
+  {
   formSelector: '#dino-form',
   listSelector: '#dino-list',
-})
+}
+)
