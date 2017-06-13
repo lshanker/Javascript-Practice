@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dinoplasty 2</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+
+<body>
+  <div class="row">
+    <div class="medium-8 medium-offset-2 column">
+      <img src="dino.jpg">
+      <h1>Dinoplasty 3!</h1>
+      <form id="dino-form">
+        <div class="input-group">
+          <input type="text" class="input-group-field" name="dinoName" placeholder="Name a dinosaur">
+          <input type="text" class="input-group-field" name="dinoFood" placeholder="Dino's favorite food">
+          <select name="dinoCategory">
+              <option value="" disabled selected>Select Category</option>
+              <option value = "1">Great Dino</option>
+              <option value = "2">Average Dino</option>
+              <option value = "3">Bad Dino</option>
+            </select>
+          <div class="input-group-button">
+            <button class="button success" type="submit">
+                Add dino
+              </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <section class="category1">
+    <h2>Great Dinos</h2>
+    <ul id="dino-list-1"></ul>
+  </section>
+  <section class='category2'>
+    <h2>Average Dinos</h2>
+    <ul id="dino-list-2"></ul>
+  </section>
+  <section class="category3">
+    <h2>Bad Dinos</h2>
+    <ul id="dino-list-3"></ul>
+  </section>
+
+
+
+  <script src="https://use.fontawesome.com/c968e710f5.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
